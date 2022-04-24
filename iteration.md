@@ -161,17 +161,17 @@ A class that implements `Iterator` interface can add other methods too. [ListIte
 
 Following are the instance methods in `ListIterator` class:
 
-| Type    | Method          | Description                                                                                                 |   |   |
-|---------|-----------------|-------------------------------------------------------------------------------------------------------------|---|---|
-| boolean | hasNext()       | Returns true if this list iterator has more elements when traversing the list in the forward direction.     |   |   |
-| E       | next()          | Returns the next element in the list and advances the cursor position.                                      |   |   |
-| boolean | hasPrevious()   | Returns true if this list iterator has more elements when traversing the list in the reverse direction.     |   |   |
-| E       | previous()      | Returns the previous element in the list and moves the cursor position backwards.                           |   |   |
-| int     | nextIndex()     | Returns the index of the element that would be returned by a subsequent call to next().                     |   |   |
-| int     | previousIndex() | Returns the index of the element that would be returned by a subsequent call to previous().                 |   |   |
-| void    | add(E e)        | Inserts the specified element into the list (optional operation).                                           |   |   |
-| void    | remove()        | Removes from the list the last element that was returned by next() or previous() (optional operation).      |   |   |
-| void    | set(E e)        | Replaces the last element returned by next() or previous() with the specified element (optional operation). |   |   |
+| Type    | Method          | Description                                                                                                 |
+|---------|-----------------|-------------------------------------------------------------------------------------------------------------|
+| boolean | hasNext()       | Returns true if this list iterator has more elements when traversing the list in the forward direction.     |
+| E       | next()          | Returns the next element in the list and advances the cursor position.                                      |
+| boolean | hasPrevious()   | Returns true if this list iterator has more elements when traversing the list in the reverse direction.     |
+| E       | previous()      | Returns the previous element in the list and moves the cursor position backwards.                           |
+| int     | nextIndex()     | Returns the index of the element that would be returned by a subsequent call to next().                     |
+| int     | previousIndex() | Returns the index of the element that would be returned by a subsequent call to previous().                 |
+| void    | add(E e)        | Inserts the specified element into the list (optional operation).                                           |
+| void    | remove()        | Removes from the list the last element that was returned by next() or previous() (optional operation).      |
+| void    | set(E e)        | Replaces the last element returned by next() or previous() with the specified element (optional operation). |
 
 The advantages of using an iterator are,
 
@@ -284,7 +284,14 @@ while(iter.hasPrevious()) {
 }
 ```
 
-Assuming ArrayList `list` holds the values [10, 70, 20, 90, 30, 80], the following code will display `80, 30, 90, 20, 70, 10`.
+Assuming ArrayList `list` holds the values [10, 70, 20, 90, 30, 80], the following code will display `80 30 90 20 70 10`.
+
+```java
+ListIterator<Integer> iter = list.listIterator(list.size());
+while(iter.hasPrevious()) {
+	System.out.print(iter.previous()+" ");
+}
+```
 
 > ### Initial state
 >
@@ -314,13 +321,6 @@ Assuming ArrayList `list` holds the values [10, 70, 20, 90, 30, 80], the followi
 >
 > ![](./fig/06-lists/listIterator/listIterator-figure1.png)
 
-```java
-ListIterator<Integer> iter = list.listIterator(list.size());
-while(iter.hasPrevious()) {
-	System.out.print(iter.previous()+" ");
-}
-```
-
 ## Adding items using iterator
 
 After `add` is executed, the cursor is after the added item.
@@ -334,7 +334,7 @@ while(iter.hasNext()) {
   iter.add(0);
   iter.next();
 }
-//list is now 0, 10, 0, 70, 0, 20, 0, 90, 0, 80, 0, 30
+//list is now 0, 10, 0, 70, 0, 20, 0, 90, 0, 30, 0, 80
 ```
 
 One must be careful while using `add` during reverse traversal since the cursor is after the added item.
