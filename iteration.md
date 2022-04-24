@@ -250,7 +250,7 @@ while(iter.hasNext()) {
 
 You can pass the index of the item **BEFORE** which you want the iterator to be placed.
 
-Assuming ArrayList `list` holds the values [10, 70, 20, 90, 30, 80], the following code will display `30 80`.
+Assuming ArrayList `list` holds the values [10, 70, 20, 90, 30, 80], the following code will display `30 80 `.
 
 ```java
 ListIterator<Integer> iter = list.listIterator(4);
@@ -284,7 +284,7 @@ while(iter.hasPrevious()) {
 }
 ```
 
-Assuming ArrayList `list` holds the values [10, 70, 20, 90, 30, 80], the following code will display `80 30 90 20 70 10`.
+Assuming ArrayList `list` holds the values [10, 70, 20, 90, 30, 80], the following code will display `80 30 90 20 70 10 `.
 
 ```java
 ListIterator<Integer> iter = list.listIterator(list.size());
