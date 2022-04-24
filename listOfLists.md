@@ -36,7 +36,7 @@ matrix.add(a); //matrix = [[1000,700,200,900]]
 matrix.add(b); //matrix = [[1000,700,200,900], [500,800,300,400]]
 matrix.add(c); //matrix = [[1000,700,200,900], [500,800,300,400], [600,700,800,900]]
 
-System.out.println(matrix); //[[1000, 700, 200, 900]]
+System.out.println(matrix); //[[1000, 700, 200, 900], [500, 800, 300, 400], [600, 700, 800, 900]]
 System.out.println(matrix.get(0)); //[1000, 700, 200, 900]
 System.out.println(matrix.get(1)); //[500, 800, 300, 400]
 System.out.println(matrix.get(2)); //[600, 700, 800, 900]
@@ -217,14 +217,11 @@ OUTPUT:
 200
 900
 ----
-----
 500
-800
-400
-----
+300
 ----
 600
-900
+300
 ----
 */
 ```
@@ -241,7 +238,7 @@ As you can see, null-objects, whether it's a sub-list or an item in one of the s
 if(varying!=null) {
 	int maxItems = 0;
 	for(int i=0; i < varying.size(); i++) {
-		if(varying!=null) {
+		if(varying.get(i)!=null) {
 			maxItems = Math.max(maxItems, varying.get(i).size());
 		}
 	}
@@ -250,7 +247,7 @@ if(varying!=null) {
 		for(int k=0; k < varying.size(); k++) {
 			if(varying.get(k)!=null) {
 				if(varying.get(k).size() > i) {
-					System.out.println(varying.get(i).get(k));
+					System.out.println(varying.get(k).get(i));
 				}
 				else {
 					System.out.println("out of bounds");
